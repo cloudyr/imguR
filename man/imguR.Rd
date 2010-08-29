@@ -36,7 +36,7 @@ Aaron Statham (aaron.l.statham@gmail.com
 }
 
 \seealso{
-\code{\link{imguR::dev.off}}
+\code{\link{dev.off}}
 \code{\link{imguRupload}}
 }
 \examples{

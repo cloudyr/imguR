@@ -1,76 +1,46 @@
 \name{imguRupload}
 \alias{imguRupload}
-%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+Uploads an image file to imgur.com
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+Takes an image file, and uploads it to imgur.com using the anonymous API and returns a list containing details of where the
+image is hosted.
 }
 \usage{
 imguRupload(filename, title = NULL, caption = NULL, name = basename(filename), apikey = "4feb29d00face5bc1b9dae536e15c373")
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{filename}{
-%%     ~~Describe \code{filename} here~~
-}
-  \item{title}{
-%%     ~~Describe \code{title} here~~
-}
-  \item{caption}{
-%%     ~~Describe \code{caption} here~~
-}
-  \item{name}{
-%%     ~~Describe \code{name} here~~
-}
-  \item{apikey}{
-%%     ~~Describe \code{apikey} here~~
-}
+  \item{filename}{Name of the file to be uploaded to imgur.com}
+  \item{title}{Image title passed to the imguR API}
+  \item{caption}{Image title passed to the imguR API}
+  \item{name}{Image title passed to the imguR API}
+  \item{apikey}{The anonymous API key provided by imgur for the imguR package - this allows 50 image uploads per hour.}
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+A list parsed from the imguR JSON response after uploading the plot (see the imgur API for details)
 }
 \references{
-%% ~put references to the literature/web site here ~
+http://www.imgur.com
+http://github.com/astatham/imgur-R-Package
 }
 \author{
-%%  ~~who you are~~
+Aaron Statham (aaron.l.statham@gmail.com
 }
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+\code{\link{imguR}}
+\code{\link{dev.off}}
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function(filename, title=NULL, caption=NULL, name=basename(filename), apikey="4feb29d00face5bc1b9dae536e15c373") {
-    require(RCurl)
-    require(RJSONIO)
-    if (length(filename)>1) stop("'filename' must be length 1.")
-    if (!file.exists(filename)) stop(filename, "does not exist!")
-    params <- list(key=apikey, image=fileUpload(filename), name=filename)
-    if (!is.null(title)) params[["title"]] <- title
-    if (!is.null(caption)) params[["caption"]] <- caption
-    fromJSON(rawToChar(postForm("http://api.imgur.com/2/upload.json", .params=params)))$upload
-  }
+tmpfile <- tempfile()
+pdf(tmpfile)
+plot(x=1:10, y=-1:-10, col=1:10, pch=19, main="oh hai dere")
+dev.off()
+temp <- imguRupload(tmpfile)
+cat(temp$links$imgur_page)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+
