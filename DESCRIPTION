@@ -1,8 +1,8 @@
 Package: imguR
 Type: Package
 Title: What the package does (short line)
-Version: 0.1.0
-Date: 2010-08-19
+Version: 0.1.1
+Date: 2010-08-29
 Author: Aaron Statham
 Maintainer: Aaron Statham <aaron.l.statham@gmail.com>
 Depends: RJSONIO, RCurl

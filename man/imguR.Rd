@@ -1,68 +1,46 @@
 \name{imguR}
 \alias{imguR}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{
-%%  ~~function to do ... ~~
-}
-\description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
-}
+\title{imguR Graphics Device}
+\description{\code{imguR} starts a device driver (wrapped around \code{pdf}) which automatically uploads plots to the 
+free image hosting service imgur.com}
 \usage{
 imguR(title = NULL, caption = NULL, name = NULL, ...)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{title}{
-%%     ~~Describe \code{title} here~~
+Image title passed to the imguR API
 }
   \item{caption}{
-%%     ~~Describe \code{caption} here~~
+Image title passed to the imguR API
 }
   \item{name}{
-%%     ~~Describe \code{name} here~~
+Image title passed to the imguR API
 }
   \item{\dots}{
-%%     ~~Describe \code{\dots} here~~
+Additional arguments passed to \code{pdf}
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+This package is a wrapper for the \code{pdf} function. A temporary file is created by \code{pdf}, acting as normal 
+graphical device. After plotting, when \code{dev.off} is called, the file is closed, uploaded to imguR and a URL of
+the files location is returned. In the case of multipaged pdfs being uploaded, imguR automatically concatenates them
+into a single image. 
 }
-\value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
+\value{\code{imguR} is invoked for its side effect and returns nothing}
 \references{
-%% ~put references to the literature/web site here ~
+http://www.imgur.com
+http://github.com/astatham/imgur-R-Package
 }
 \author{
-%%  ~~who you are~~
+Aaron Statham (aaron.l.statham@gmail.com
 }
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+\code{\link{imguR::dev.off}}
+\code{\link{imguRupload}}
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
-
-## The function is currently defined as
-function(title=NULL, caption=NULL, name=NULL, ...) {
-    tmpfile <- tempfile()
-    pdf(tmpfile, ...)
-    list(dev=dev.cur(), filename=tmpfile, title=title, caption=caption, name=name)
-  }
+imguR()
+plot(x=1:10, y=-1:-10, col=1:10, pch=19, main="oh hai dere")
+cat(dev.off())
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
