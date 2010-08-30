@@ -14,9 +14,9 @@ Requirements and Installation
 
    install.packages("RJSONIO", repos = "http://www.omegahat.org/R")
    
-   or to install from source (may help on OSX)
+   or to install from source (required on OSX as omegahat does not create RJSON binaries for OSX) 
    
-   install.packages("RJSONIO", repos = "http://www.omegahat.org/R", type="source")
+   install.packages("RJSONIO", repos = "http://www.omegahat.org/R", type="source") ##This requires the [developer tools](http://cran.r-project.org/bin/macosx/RMacOSX-FAQ.html#Building-R-from-sources)
 
 *  imguR itself
 
