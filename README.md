@@ -12,6 +12,10 @@ Requirements and Installation
 
 *  RJSONIO (I had a few troubles with the CRAN rjson package)
 
+   install.packages("RJSONIO", repos = "http://www.omegahat.org/R")
+   
+   or to install from source (may help on OSX)
+   
    install.packages("RJSONIO", repos = "http://www.omegahat.org/R", type="source")
 
 *  imguR itself
