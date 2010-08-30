@@ -37,7 +37,7 @@ Example Usage
 
     [1] "http://imgur.com/nsDOm"
 
-
+Or check out this [gist](http://gist.github.com/557049) for an idea of some cool automation you can do using imguR().
 
 Links
 -----
