@@ -8,17 +8,17 @@ Requirements and Installation
 -----------------------------
 *  RCurl - avaiilable from CRAN
 
-   install.packages("RCurl)
+   install.packages("RCurl")
 
 *  RJSONIO (I had a few troubles with the CRAN rjson package)
 
-   install.packages("RJSONIO", repos = "http://www.omegahat.org/R")
+   install.packages("RJSONIO", repos = "http://www.omegahat.org/R", type="source")
 
 *  imguR itself
 
    download.file("http://github.com/downloads/astatham/imgur-R-Package/imguR_0.1.1.tar.gz", "imguR_0.1.1.tar.gz")
    
-   install.package("imguR_0.1.1.tar.gz", repos=NULL)
+   install.packages("imguR_0.1.1.tar.gz", repos=NULL, type="source")
 
 
 Example Usage
