@@ -4,6 +4,6 @@ imguRupload <- function(filename, title=NULL, caption=NULL, name=basename(filena
     params <- list(key=apikey, image=RCurl::fileUpload(filename), name=filename)
     if (!is.null(title)) params[["title"]] <- title
     if (!is.null(caption)) params[["caption"]] <- caption
-    RJSONIO::fromJSON(rawToChar(RCurl::postForm("http://api.imgur.com/2/upload.json", .params=params)))$upload
+    unlist(XML::xmlToList(RCurl::postForm("http://api.imgur.com/2/upload.xml", .params=params)))
 }
 
