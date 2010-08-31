@@ -1,4 +1,4 @@
-imguR Package (version 0.1.2)
+imguR Package(version 0.1.1)
 ============================
 
 This is a simple package which enables intuitive uploading of plots created in R to the free image hosting service
@@ -6,15 +6,23 @@ www.imgur.com simply, quickly and intuitively.
 
 Requirements and Installation
 -----------------------------
-*  RCurl and XML packages- avaiilable from CRAN
+*  RCurl - avaiilable from CRAN
 
-   install.packages(c("RCurl", "XML"))
+   install.packages("RCurl")
+
+*  RJSONIO (I had a few troubles with the CRAN rjson package)
+
+   install.packages("RJSONIO", repos = "http://www.omegahat.org/R")
+   
+   or to install from source (required on OSX as omegahat does not create RJSON binaries for OSX) 
+   
+   install.packages("RJSONIO", repos = "http://www.omegahat.org/R", type="source") ##This requires the [developer tools](http://cran.r-project.org/bin/macosx/RMacOSX-FAQ.html#Building-R-from-sources)
 
 *  imguR itself
 
-   download.file("http://github.com/downloads/astatham/imgur-R-Package/imguR_0.1.2.tar.gz", "imguR_0.1.2.tar.gz")
+   download.file("http://github.com/downloads/astatham/imgur-R-Package/imguR_0.1.1.tar.gz", "imguR_0.1.1.tar.gz")
    
-   install.packages("imguR_0.1.2.tar.gz", repos=NULL, type="source")
+   install.packages("imguR_0.1.1.tar.gz", repos=NULL, type="source")
 
 
 Example Usage
@@ -47,6 +55,4 @@ Links
 Author Contact
 --------------
 Aaron Statham (aaron.l.statham@gmail.com)
-
-Last updated 31st August 2010
 
