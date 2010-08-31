@@ -1,0 +1,11 @@
+Package: imguR
+Type: Package
+Title: What the package does (short line)
+Version: 0.1.1
+Date: 2010-08-29
+Author: Aaron Statham
+Maintainer: Aaron Statham <aaron.l.statham@gmail.com>
+Depends: RJSONIO, RCurl
+Description: A package to share plots using the image hosting service imgur.com
+License: GPL v3
+LazyLoad: yes
