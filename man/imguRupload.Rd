@@ -41,6 +41,6 @@ pdf(tmpfile)
 plot(x=1:10, y=-1:-10, col=1:10, pch=19, main="oh hai dere")
 dev.off()
 temp <- imguRupload(tmpfile)
-cat(temp$links$imgur_page)
+cat(temp["links.imgur_page"])
 }
 
