@@ -13,6 +13,6 @@ dev.off <- function(which = dev.cur(), justLink=TRUE) {
     imguR.dev[[which]] <- NULL
     #reassign the global showing "which" has been closed
     assign(".imguR.devices", imguR.dev, envir=.GlobalEnv)
-    if (justLink) return(temp$links$imgur_page) else return(temp)
+    if (justLink) return(temp["links.imgur_page"]) else return(temp)
 }
 
