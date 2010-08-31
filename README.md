@@ -37,8 +37,6 @@ Links
 
 [The R Project](http://www.r-project.org/)
 
-[RJSONIO home](http://www.omegahat.org/RJSONIO/)
-
 [imgur](http://www.imgur.com)
 
 [imgur API documentation](http://api.imgur.com)
