@@ -1,6 +1,6 @@
 Package: imguR
 Type: Package
-Title: What the package does (short line)
+Title: imgur Client Package
 Version: 0.1.2
 Date: 2010-08-31
 Author: Aaron Statham
