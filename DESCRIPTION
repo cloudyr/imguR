@@ -1,10 +1,12 @@
 Package: imguR
 Type: Package
 Title: imgur Client Package
-Version: 0.1.2
-Date: 2010-08-31
-Author: Aaron Statham
-Maintainer: Aaron Statham <aaron.l.statham@gmail.com>
+Version: 0.2.0
+Date: 2014-06-15
+Authors@R: c(person("Thomas J.", "Leeper", role = c("aut"),
+                    email = "thosjleeper@gmail.com"),
+             person("Aaron", "Statham", role = c("ctb", "cre"), email = "aaron.l.statham@gmail.com"))
+Maintainer: Thomas J. Leeper <thosjleeper@gmail.com>
 Depends: XML, RCurl
 Description: A package to share plots using the image hosting service imgur.com
 License: GPL v3
