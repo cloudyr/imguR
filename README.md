@@ -1,4 +1,4 @@
-# imguR Package (version 0.1.2) #
+# imguR Package #
 
 This is a simple package which enables intuitive uploading of plots created in R to the free image hosting service
 www.imgur.com simply, quickly, and intuitively.
