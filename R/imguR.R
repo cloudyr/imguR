@@ -1,11 +1,9 @@
-imguR <- function(title=NULL, caption=NULL, name=NULL, ...) {
+imgur <- function(device, title = NULL, caption = NULL, name = NULL, ...) {
     tmpfile <- tempfile()
-    pdf(tmpfile, ...)
-    which <- dev.cur()
-    if (!exists(".imguR.devices", envir=.GlobalEnv)) imguR.dev <- list()
-        else imguR.dev <- get(".imguR.devices", envir=.GlobalEnv)
-    imguR.dev[[which]] <- list(filename=tmpfile, title=title, caption=caption, name=name)
-    assign(".imguR.devices", imguR.dev, envir=.GlobalEnv)
-    invisible()
+    do.call(device, c(file = tmpfile, list(...)))
+    structure(list(filename = tmpfile,
+                   current = dev.cur(),
+                   title = title, 
+                   caption = caption, 
+                   name = name), class = 'imgur-device')
 }
-
