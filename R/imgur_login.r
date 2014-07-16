@@ -21,4 +21,3 @@ imgur_login <- function(client_id,
     }
     return(token)
 }
-}
