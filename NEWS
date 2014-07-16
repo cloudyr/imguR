@@ -1,0 +1,10 @@
+# CHANGES TO imguR 0.2 #
+
+## SIGNIFICANT USER-VISIBLE CHANGES ##
+
+* Thomas Leeper takes over as maintainer
+* Package now works with the Imgur v3 API (including OAuth 2.0 support) as well as anonymously.
+ 
+# CHANGES TO imgur 0.1 #
+
+* Initial package released by Aaron Statham
