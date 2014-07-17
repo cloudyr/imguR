@@ -14,5 +14,6 @@ function(client_id = "1babd0decbb90f2",
         warning('OAuth error ', token$credentials$error,
                 ': ', token$credentials$error_description, sep='')
     }
+    token$credentials$expiration <- System.time() + token$credentials$expires_in
     return(token)
 }

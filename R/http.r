@@ -27,6 +27,9 @@
                     "Please contact Thomas Leeper <thosjleeper@gmail.com> about this message.")
         }
     }
+    
+    # something here to check token expiration?
+    
     return(out$data)
 }
 
