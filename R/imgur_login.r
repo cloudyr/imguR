@@ -1,15 +1,10 @@
-imgur_login <- function(client_id,
-                        secret){
-    if(is.null(client_id))
-        stop("Must supply developer username as 'client_id'")
-    if(is.null(secret))
-        stop("Must supply developer secret key as 'secret'")
+imgur_login <- 
+function(client_id = "1babd0decbb90f2",
+         secret = "06eed15f8e3662c20d7ff95a62853266400aae5a"){
     a <- list(response_type = "code",
-              redirect_uri = redirect_uri,
-              client_id = client_id,
-              api_key = api_key)
+              client_id = client_id)
     a <- paste(names(a), curlEscape(a), sep='=', collapse='&')
-    e <- structure(list(authorize = 'https://api.imgur.com/oauth2/authorize',
+    e <- structure(list(authorize = paste('https://api.imgur.com/oauth2/authorize', a, sep='?'),
                         access = 'https://api.imgur.com/oauth2/token', 
                         addclient = 'https://api.imgur.com/oauth2/addclient'),
                         class = 'oauth_endpoint')
