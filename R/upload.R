@@ -13,10 +13,9 @@ function(file,
     if(!is.null(token)){
         if(!is.character(token))
             stop('The Imgur API OAuth token must be a character string!')
-        res <- POST('https://api.imgur.com/3/image.json', 
-                    body = list(image = fileUpload(file)), 
-                    config(httpheader = c(Authorization = paste('Bearer', token))),
-                    ...)
+        res <- imgurPOST('image.json', 
+                         body = list(image = fileUpload(file)), 
+                         ...)
     } else {
         if(is.null(key)) {
             key <- "1babd0decbb90f2" # Thomas Leeper imguR
@@ -25,13 +24,12 @@ function(file,
         }
         if(!is.character(key))
             stop('The Imgur API Key must be a character string!')
-        res <- POST('https://api.imgur.com/3/image.json', 
-                    body = list(image = fileUpload(file)),
-                    config(httpheader = c(Authorization = paste('Client-ID', key))),
-                    ...)
+        res <- imgurPOST('image.json', 
+                         body = list(image = fileUpload(file)),
+                         ...)
     }
     out <- content(res)
-    if(out$success != 'true')
+    if(!out$success)
         warning("Operation failed.")
     structure(out$data)
 }
