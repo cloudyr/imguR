@@ -1,13 +1,37 @@
-imguRupload <- function(filename, title=NULL, caption=NULL, name=basename(filename), apikey="4feb29d00face5bc1b9dae536e15c373") {
-    if (length(filename)>1)
-        stop("'filename' must be length 1.")
-    if (!file.exists(filename))
-        stop(filename, "does not exist!")
-    params <- list(key=apikey, image=RCurl::fileUpload(filename), name=filename)
-    if (!is.null(title)) 
-        params[["title"]] <- title
-    if (!is.null(caption)) 
-        params[["caption"]] <- caption
-    unlist(XML::xmlToList(RCurl::postForm("http://api.imgur.com/2/upload.xml", .params=params)))
+upload <-
+function(file, 
+         title = NULL,
+         description = NULL,
+         album = NULL,
+         name = NULL,
+         type = 'file',
+         key = "1babd0decbb90f2",
+         token = NULL,
+         ...) {
+    if(!file.exists(file))
+        stop("File not found!")
+    if(!is.null(token)){
+        if(!is.character(token))
+            stop('The Imgur API OAuth token must be a character string!')
+        res <- POST('https://api.imgur.com/3/image.json', 
+                    body = list(image = fileUpload(file)), 
+                    config(httpheader = c(Authorization = paste('Bearer', token))),
+                    ...)
+    } else {
+        if(is.null(key)) {
+            key <- "1babd0decbb90f2" # Thomas Leeper imguR
+            #key <- "9f3460e67f308f6" # Yihui Xie knitr
+            #key <- "4feb29d00face5bc1b9dae536e15c373" # Aaron Statham imguR
+        }
+        if(!is.character(key))
+            stop('The Imgur API Key must be a character string!')
+        res <- POST('https://api.imgur.com/3/image.json', 
+                    body = list(image = fileUpload(file)),
+                    config(httpheader = c(Authorization = paste('Client-ID', key))),
+                    ...)
+    }
+    out <- content(res)
+    if(out$success != 'true')
+        warning("Operation failed.")
+    structure(out$data)
 }
-
