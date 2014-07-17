@@ -3,8 +3,57 @@
     if(!out$success)
         warning('Imgur Error: ', out$data$error)
     stop_for_status(x)
+    
+    # check rate limiting
+    if(getOptions(imgur_user_rate_warning, 0) > 0 || 
+       getOptions(imgur_client_rate_warning, 0) > 0) {
+        h <- x$headers
+        client_remaining <- 
+            as.numeric(h$`x-ratelimit-clientlimit`) - 
+            as.numeric(h$`x-ratelimit-clientremaining`)
+        user_remaining <-
+            as.numeric(h$`x-ratelimit-userlimit`) -
+            as.numeric(h$`x-ratelimit-userremaining`)
+        reset_time <- as.POSIXct(as.numeric(h$`x-ratelimit-userreset`), 
+                                 origin = '1970-01-01')
+        if(user_remaining <= getOptions(imgur_user_rate_warning, 0)) {
+            warning("User rate limit approaching. ", 
+                    user_remaining, "calls available.\n",
+                    "Credits will reset at:", reset_time)
+        }
+        if(client_remaining <= getOptions(imgur_client_rate_warning, 0)) {
+            warning("Client rate limit approaching. ",
+                    user_remaining, "calls available.\n",
+                    "Please contact Thomas Leeper <thosjleeper@gmail.com> about this message.")
+        }
+    }
     return(out$data)
 }
+
+.hello_world <-
+function(key = "1babd0decbb90f2", # Thomas Leeper imguR
+         token = NULL,
+         ...){
+    if(!is.null(token)){
+        if(inherits(token, "Token2.0"))
+            token <- token$credentials$access_token
+        if(!is.character(token))
+            stop('The Imgur API OAuth token must be a character string!')
+        out <- GET('https://api.imgur.com/3/account/thosjleeper', 
+                   config(httpheader = c(Authorization = paste('Bearer', token))),
+                   ...)
+    } else if(!is.null(key)) {
+        if(!is.character(key))
+            stop('The Imgur API Key must be a character string!')
+        out <- GET('https://api.imgur.com/3/account/thosjleeper', 
+                   config(httpheader = c(Authorization = paste('Client-ID', key))),
+                   ...)
+    } else {
+        stop("Must specify an API key or OAuth2.0 Access Token.")
+    }
+    return(out)
+}
+
 
 imgurGET <-
 function(endpoint, 
