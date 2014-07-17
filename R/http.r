@@ -30,31 +30,6 @@
     return(out$data)
 }
 
-.hello_world <-
-function(key = "1babd0decbb90f2", # Thomas Leeper imguR
-         token = NULL,
-         ...){
-    if(!is.null(token)){
-        if(inherits(token, "Token2.0"))
-            token <- token$credentials$access_token
-        if(!is.character(token))
-            stop('The Imgur API OAuth token must be a character string!')
-        out <- GET('https://api.imgur.com/3/account/thosjleeper', 
-                   config(httpheader = c(Authorization = paste('Bearer', token))),
-                   ...)
-    } else if(!is.null(key)) {
-        if(!is.character(key))
-            stop('The Imgur API Key must be a character string!')
-        out <- GET('https://api.imgur.com/3/account/thosjleeper', 
-                   config(httpheader = c(Authorization = paste('Client-ID', key))),
-                   ...)
-    } else {
-        stop("Must specify an API key or OAuth2.0 Access Token.")
-    }
-    return(out)
-}
-
-
 imgurGET <-
 function(endpoint, 
          base_url = "https://api.imgur.com/3/", 
