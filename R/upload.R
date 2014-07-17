@@ -13,7 +13,7 @@ function(file,
     if(!is.null(token)){
         if(!is.character(token))
             stop('The Imgur API OAuth token must be a character string!')
-        res <- imgurPOST('image.json', 
+        out <- imgurPOST('image.json', 
                          body = list(image = fileUpload(file)), 
                          ...)
     } else {
@@ -24,12 +24,9 @@ function(file,
         }
         if(!is.character(key))
             stop('The Imgur API Key must be a character string!')
-        res <- imgurPOST('image.json', 
+        out <- imgurPOST('image.json', 
                          body = list(image = fileUpload(file)),
                          ...)
     }
-    out <- content(res)
-    if(!out$success)
-        warning("Operation failed.")
-    structure(out$data)
+    structure(out)
 }

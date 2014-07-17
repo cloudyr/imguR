@@ -16,6 +16,9 @@ function(endpoint,
         stop("Must specify an API key or OAuth2.0 Access Token.")
     }
     stop_for_status(out)
+    out <- content(out)
+    if(!out$success)
+        warning("Operation failed.")
     return(out)
 }
 
@@ -37,6 +40,9 @@ function(endpoint,
         stop("Must specify an API key or OAuth2.0 Access Token.")
     }
     stop_for_status(out)
+    out <- content(out)
+    if(!out$success)
+        warning("Operation failed.")
     return(out)
 }
 
@@ -58,6 +64,9 @@ function(endpoint,
         stop("Must specify an API key or OAuth2.0 Access Token.")
     }
     stop_for_status(out)
+    out <- content(out)
+    if(!out$success)
+        warning("Operation failed.")
     return(out)
 }
 
@@ -79,5 +88,8 @@ function(endpoint,
         stop("Must specify an API key or OAuth2.0 Access Token.")
     }
     stop_for_status(out)
+    out <- content(out)
+    if(!out$success)
+        warning("Operation failed.")
     return(out)
 }
