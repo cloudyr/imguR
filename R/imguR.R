@@ -1,17 +1,35 @@
-imgur <- function(device = png, title = NULL, caption = NULL, name = NULL, ...) {
+imgur <-
+function(device = png,
+         title = NULL, 
+         description = NULL, 
+         album = NULL,
+         name = NULL, 
+         key = NULL,
+         token = NULL,
+         ...) {
     tmpfile <- tempfile()
     do.call(device, c(file = tmpfile, list(...)))
-    structure(list(filename = tmpfile,
+    structure(list(file = tmpfile,
                    current = dev.cur(),
                    title = title, 
-                   caption = caption, 
-                   name = name), class = 'imgur-device')
+                   description = description, 
+                   name = name,
+                   key = key,
+                   token = token), class = 'imgur-device')
 }
 
-imgur_off <- function(obj, justLink=TRUE) {
+imgur_off <-
+function(obj, ...) {
     if(!inherits(obj, 'imgur_device'))
         stop("'obj' is not of class 'imgur_device'")
     dev.off(obj$current)
-    tmp <- imguRupload(obj$filename, obj$title, obj$caption, obj$name)
-    return(temp)
+    tmp <- do.call(upload, c(file = obj$file,
+                             title = obj$title,
+                             description = obj$description,
+                             name = obj$name,
+                             key = obj$key,
+                             token = obj$token,
+                             list(...)))
+    unlink(obj$file)
+    return(tmp)
 }
