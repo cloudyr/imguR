@@ -1,4 +1,4 @@
 import(httr)
 import(XML)
-importFrom(RCurl, curlEscape)
+importFrom(RCurl, curlEscape, fileUpload)
 exportPattern("^[^\\.]")
