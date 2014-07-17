@@ -23,13 +23,14 @@ function(obj, ...) {
     if(!inherits(obj, 'imgur_device'))
         stop("'obj' is not of class 'imgur_device'")
     dev.off(obj$current)
-    tmp <- do.call(upload, c(file = obj$file,
-                             title = obj$title,
-                             description = obj$description,
-                             name = obj$name,
-                             key = obj$key,
-                             token = obj$token,
-                             list(...)))
+    tmp <- do.call(upload_image,
+                   c(file = obj$file,
+                     title = obj$title,
+                     description = obj$description,
+                     name = obj$name,
+                     key = obj$key,
+                     token = obj$token,
+                     list(...)))
     unlink(obj$file)
     return(tmp)
 }
