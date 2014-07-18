@@ -1,8 +1,5 @@
 get_image <- 
-function(id, 
-         key = NULL, 
-         token = NULL, 
-         ...){
-    out <- imgurGET(paste0('image/', id), key = key, token = token, ...)
+function(id, ...){
+    out <- imgurGET(paste0('image/', id), ...)
     structure(out, class = 'imgur_image')
 }

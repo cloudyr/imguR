@@ -9,13 +9,16 @@ function(device = png,
          ...) {
     tmpfile <- tempfile()
     do.call(device, c(file = tmpfile, list(...)))
-    structure(list(file = tmpfile,
-                   current = dev.cur(),
-                   title = title, 
-                   description = description, 
-                   name = name,
-                   key = key,
-                   token = token), class = 'imgur-device')
+    out <- list(file = tmpfile,
+                current = dev.cur(),
+                title = title, 
+                description = description, 
+                name = name)
+    if(!is.null(key))
+        out$key <- key
+    if(!is.null(token))
+        out$token <- token
+    structure(out, class = 'imgur-device')
 }
 
 imgur_off <-
@@ -23,14 +26,7 @@ function(obj, ...) {
     if(!inherits(obj, 'imgur_device'))
         stop("'obj' is not of class 'imgur_device'")
     dev.off(obj$current)
-    tmp <- do.call(upload_image,
-                   c(file = obj$file,
-                     title = obj$title,
-                     description = obj$description,
-                     name = obj$name,
-                     key = obj$key,
-                     token = obj$token,
-                     list(...)))
+    tmp <- do.call(upload_image, c(obj, list(...)))
     unlink(obj$file)
     return(tmp)
 }

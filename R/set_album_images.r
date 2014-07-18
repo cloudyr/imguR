@@ -1,10 +1,8 @@
 set_album_images <- 
 function(album, 
          id,
-         key = NULL, 
-         token = NULL, 
          ...){
     b <- list(paste(id, collapse = ','))
-    out <- imgurPOST(paste0('album/', album), key = key, token = token, body = b, ...)
+    out <- imgurPOST(paste0('album/', album), body = b, ...)
     structure(out, class = 'imgur_basic')
 }

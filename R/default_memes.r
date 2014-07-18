@@ -1,7 +1,5 @@
 default_memes <- 
-function(key = NULL, 
-         token = NULL, 
-         ...){
-    out <- imgurGET('memegen/defaults', key = key, token = token, ...)
+function(...){
+    out <- imgurGET('memegen/defaults', ...)
     structure(out, class = 'imgur_image')
 }

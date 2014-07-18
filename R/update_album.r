@@ -6,8 +6,6 @@ function(album,
          privacy = NULL,
          layout = NULL,
          cover_id = NULL,
-         key = NULL, 
-         token = NULL, 
          ...){
     if(!is.null(privacy))
         stopifnot(privacy %in% c('public', 'hidden', 'secret'))
@@ -19,6 +17,6 @@ function(album,
               privacy = privacy,
               layout = layout,
               cover = cover_id)
-    out <- imgurPOST(paste0('album/', album), key = key, token = token, body = b, ...)
+    out <- imgurPOST(paste0('album/', album), body = b, ...)
     structure(out, class = 'imgur_basic')
 }

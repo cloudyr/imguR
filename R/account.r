@@ -1,8 +1,5 @@
 account_base <-
-function(account, 
-         key = NULL, 
-         token = NULL, 
-         ...){
-    out <- imgurGET(paste0('account/', account), key = key, token = token, ...)
+function(account, ...){
+    out <- imgurGET(paste0('account/', account), ...)
     structure(out, class = 'imgur_basic')
 }

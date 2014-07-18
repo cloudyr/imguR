@@ -1,8 +1,5 @@
 get_album <- 
-function(id, 
-         key = NULL, 
-         token = NULL, 
-         ...){
-    out <- imgurGET(paste0('album/', id), key = key, token = token, ...)
+function(id, ...){
+    out <- imgurGET(paste0('album/', id), ...)
     structure(out, class = 'imgur_album')
 }

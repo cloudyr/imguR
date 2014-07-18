@@ -1,8 +1,6 @@
 mark_notification <-
 function(id = NULL,
-         key = NULL, 
-         token = NULL, 
          ...){
-    out <- imgurPOST(paste0('notification/', id), key = key, token = token, ...)
+    out <- imgurPOST(paste0('notification/', id), ...)
     structure(out, class = 'imgur_basic')
 }

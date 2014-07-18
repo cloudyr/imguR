@@ -1,12 +1,9 @@
 get_conversations <-
-function(id = NULL,
-         key = NULL, 
-         token = NULL, 
-         ...){
+function(id = NULL, ...){
     if(!is.null(id))
-        out <- imgurGET(paste0('conversations/', id), key = key, token = token, ...)
+        out <- imgurGET(paste0('conversations/', id), ...)
     } else {
-        out <- imgurGET('conversations/', key = key, token = token, ...)
+        out <- imgurGET('conversations/', ...)
     }
     structure(out, class = 'imgur_message')
 }

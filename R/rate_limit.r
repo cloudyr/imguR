@@ -1,7 +1,5 @@
 rate_limit <-
-function(key = NULL, 
-         token = NULL, 
-         ...){
-    out <- imgurGET('credits/', key = key, token = token, ...)
+function(...){
+    out <- imgurGET('credits/', ...)
     structure(out, class = 'imgur_basic')
 }

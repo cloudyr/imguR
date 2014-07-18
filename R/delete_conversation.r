@@ -1,8 +1,5 @@
 delete_conversation <-
-function(id,
-         key = NULL, 
-         token = NULL, 
-         ...){
-    out <- imgurDELETE(paste0('conversations/', id), key = key, token = token, ...)
+function(id, ...){
+    out <- imgurDELETE(paste0('conversations/', id), ...)
     structure(out, class = 'imgur_basic')
 }
