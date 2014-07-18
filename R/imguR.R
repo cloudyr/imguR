@@ -1,4 +1,5 @@
 imgur <-
+imguR <- 
 function(device = png,
          title = NULL, 
          description = NULL, 
@@ -25,7 +26,8 @@ imgur_off <-
 function(obj, ...) {
     if(!inherits(obj, 'imgur_device'))
         stop("'obj' is not of class 'imgur_device'")
-    dev.off(obj$current)
+    if(obj$current %in% dev.list())
+        dev.off(obj$current)
     tmp <- do.call(upload_image, c(obj, list(...)))
     unlink(obj$file)
     return(tmp)
