@@ -11,7 +11,7 @@ function(album,
         stopifnot(privacy %in% c('public', 'hidden', 'secret'))
     if(!is.null(layout))
         stopifnot(layout %in% c('blog', 'grid', 'horizontal', 'vertical'))
-    b <- list(paste(id, collapse = ','),
+    b <- list(ids = paste(id, collapse = ','),
               title = title, 
               description = description,
               privacy = privacy,
