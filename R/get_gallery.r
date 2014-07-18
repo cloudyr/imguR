@@ -16,7 +16,7 @@ function(section,
                                                     '/'),
                            page,
                            ifelse(section=='user', paste0('?showViral=', showViral),
-                                                   NULL),
+                                                   NULL)),
                     ...)
     structure(out, class = 'imgur_gallery_album') # check this
 }

@@ -4,7 +4,7 @@ function(recipient,
          ...){
     out <- imgurPOST('conversations/', 
                      body = list(recipient = recipient,
-                                 body = body)
+                                 body = body),
                      ...)
     structure(out, class = 'imgur_basic')
 }

@@ -1,5 +1,6 @@
 vote_comment <-
-function(vote = 'up',
+function(id,
+         vote = 'up',
          ...){
     if(vote %in% c('up', 'down'))
         stop("'vote' can only be 'up' or 'down'")

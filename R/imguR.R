@@ -27,7 +27,7 @@ function(device = png,
         out$key <- key
     if(!is.null(token))
         out$token <- token
-    structure(out, class = 'imgur-device')
+    structure(out, class = 'imgur_device')
 }
 
 imgur_off <-

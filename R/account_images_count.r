@@ -1,6 +1,5 @@
-get_replies <-
+account_images_count <-
 function(...){
-    out <- imgurGET(paste0('account/me/notifications/replies'),
-                    body = list(new = only_new), ...)
-    structure(out, class = 'imgur_notification')
+    out <- imgurGET(paste0('account/me/images/count'), ...)
+    structure(out, class = 'imgur_basic')
 }

@@ -3,7 +3,7 @@ function(account = 'me',
          gallery = FALSE, 
          ...){
     out <- imgurGET(paste0('account/', account, 
-                           ifelse(gallery, '/gallery_favorites', '/favorites'),
+                           ifelse(gallery, '/gallery_favorites', '/favorites')),
                     ...)
     if(gallery)
         structure(out, class = 'imgur_gallery_album') # check this

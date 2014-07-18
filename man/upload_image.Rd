@@ -15,9 +15,10 @@ imgur_upload(file, title = NULL, description = NULL, album = NULL,
   \item{description}{Optionally, an image description.}
   \item{album}{Optionally, an Imgur album ID.}
   \item{name}{Optionally, a file name, otherwise the \code{file} filename is used.}
+  \item{type}{Should be \dQuote{file}.}
   \item{...}{Other arguments passed to HTTP request functions, for example: \code{token} (an OAuth2.0 token) or \code{key} (an API key, used by default).}
 }
-\details{}
+%\details{}
 \value{A list parsed from the imguR JSON response after uploading the plot (see the imgur API for details).}
 \references{\url{https://api.imgur.com/endpoints/image#image-upload}}
 \author{
