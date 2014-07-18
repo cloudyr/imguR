@@ -1,6 +1,7 @@
 imgur <-
 imguR <- 
 function(device = png,
+         file = NULL,
          title = NULL, 
          description = NULL, 
          album = NULL,
@@ -8,13 +9,20 @@ function(device = png,
          key = NULL,
          token = NULL,
          ...) {
-    tmpfile <- tempfile()
+    if(!is.null(file)) {
+        tmpfile <- file
+        delete <- FALSE
+    } else {
+        tmpfile <- tempfile()
+        delete <- TRUE
+    }
     do.call(device, c(file = tmpfile, list(...)))
     out <- list(file = tmpfile,
                 current = dev.cur(),
                 title = title, 
                 description = description, 
-                name = name)
+                name = name,
+                delete = delete)
     if(!is.null(key))
         out$key <- key
     if(!is.null(token))
@@ -29,6 +37,7 @@ function(obj, ...) {
     if(obj$current %in% dev.list())
         dev.off(obj$current)
     tmp <- do.call(upload_image, c(obj, list(...)))
-    unlink(obj$file)
+    if(obj$delete)
+        unlink(obj$file)
     return(tmp)
 }
