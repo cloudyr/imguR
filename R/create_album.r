@@ -6,16 +6,29 @@ function(id = NULL,
          layout = NULL,
          cover_id = NULL,
          ...){
-    if(!is.null(privacy))
+    b <- list()
+    if(!is.null(title))
+        b$title <- title
+    if(!is.null(description))
+        b$description <- description
+    if(!is.null(privacy)) {
         stopifnot(privacy %in% c('public', 'hidden', 'secret'))
-    if(!is.null(layout))
+        b$privacy <- privacy
+    }
+    if(!is.null(layout)) {
         stopifnot(layout %in% c('blog', 'grid', 'horizontal', 'vertical'))
-    b <- list(ids = paste(id, collapse = ','),
-              title = title, 
-              description = description,
-              privacy = privacy,
-              layout = layout,
-              cover = cover_id)
+        b$layout <- layout
+    }
+    if(!is.null(cover_id)){
+        if(inherits(cover_id, 'imgur_image'))
+            cover_id <- cover_id$id
+        b$cover_id <- cover_id
+    }
+    if(!is.null(id)){
+        if(is.list(id))
+            id <- sapply(id, `$`, 'id')
+        b$ids <- paste(id, collapse = ',')
+    }
     out <- imgurPOST('album/', body = b, ...)
     structure(out, class = 'imgur_basic')
 }

@@ -14,8 +14,10 @@ function(bio = NULL,
         a$public_images <- public_images
     if(!is.null(messaging_enabled))
         a$messaging_enabled <- messaging_enabled
-    if(!is.null(album_privacy))
+    if(!is.null(album_privacy)) {
+        stopifnot(album_privacy %in% c('public', 'hidden', 'secret'))
         a$album_privacy <- album_privacy
+    }
     if(!is.null(accepted_gallery_terms))
         a$accepted_gallery_terms <- accepted_gallery_terms
     if(any(!sapply(a, is.null))) {
