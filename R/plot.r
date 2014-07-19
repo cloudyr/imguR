@@ -13,7 +13,7 @@ function(x, ...) {
         plot(NULL, xlim=c(0,1), ylim=c(0,1), xaxt='n', yaxt='n', 
              xlab = "", ylab = "", main = "",
              xaxs='i', yaxs='i', mar=rep(0,4), mgp=rep(0,3), ...)
-        rasterImage(j, 0,0,1,1)
+        rasterImage(out, 0,0,1,1)
     }
     invisible(x)
 }

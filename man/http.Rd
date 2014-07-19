@@ -8,9 +8,9 @@
 \usage{
 imgurGET(endpoint, 
          base_url = "https://api.imgur.com/3/", 
-         key = "1babd0decbb90f2", # Thomas Leeper imguR
+         key = "1babd0decbb90f2",
          token = NULL,
-         ...){
+         ...)
 }
 \arguments{
   \item{endpoint}{A named API endpoint.}
