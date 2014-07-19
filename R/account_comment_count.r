@@ -1,4 +1,4 @@
-account_comments_count <-
+account_comment_count <-
 function(account = 'me',
          ...){
     if(!"token" %in% names(list(...)) && account == 'me')
