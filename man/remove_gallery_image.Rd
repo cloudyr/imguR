@@ -3,7 +3,7 @@
 \title{Remove gallery image}
 \description{Remove images from the gallery}
 \usage{
-remove_gallery_images(id, ...)
+remove_gallery_image(id, ...)
 }
 \arguments{
   \item{id}{An image ID or an object of class \dQuote{imgur_image} to add to the gallery.}
@@ -14,6 +14,6 @@ remove_gallery_images(id, ...)
 %\references{}
 \author{Thomas J. Leeper}
 \seealso{
-\code{\link{remove_gallery_images}}
+\code{\link{add_gallery_images}}
 }
 %\examples{}

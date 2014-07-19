@@ -5,11 +5,11 @@
 \title{Manage album images}
 \description{Add images to or remove images from an album}
 \usage{
-add_album_images(album, id = NULL, ...)
+add_album_images(album, id, ...)
 
-remove_album_images(album, id = NULL, ...)
+remove_album_images(album, id, ...)
 
-set_album_images(album, id = NULL, ...)
+set_album_images(album, id, ...)
 }
 \arguments{
   \item{album}{An album ID or object of class \dQuote{imgur_album}.}

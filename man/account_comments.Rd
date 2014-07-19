@@ -4,7 +4,7 @@
 \title{Retrieve user albums}
 \description{Retrieve details of a user's albums}
 \usage{
-account_comments(account = 'me', ids = TRUE, ...)
+account_comments(account = 'me', ids = FALSE, ...)
 
 account_comment_count(account = 'me', ...)
 }

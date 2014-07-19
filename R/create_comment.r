@@ -9,7 +9,7 @@ function(id,
         id <- id$id
     b <- list(image_id = id,
               comment = comment)
-    if(!is.null(parent_comment))
+    if(!is.null(parent))
         b$parent_comment <- parent
     out <- imgurPOST('comment/',
                      body = b,

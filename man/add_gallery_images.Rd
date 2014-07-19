@@ -16,6 +16,6 @@ add_gallery_images(album = NULL, id = NULL, title = NULL, ...)
 %\references{}
 \author{Thomas J. Leeper}
 \seealso{
-\code{\link{remove_gallery_images}}
+\code{\link{remove_gallery_image}}
 }
 %\examples{}
