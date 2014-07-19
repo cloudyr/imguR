@@ -1,5 +1,6 @@
 \name{remove_gallery_image}
 \alias{remove_gallery_image}
+\title{Remove gallery image}
 \description{Remove images from the gallery}
 \usage{
 remove_gallery_images(id, ...)

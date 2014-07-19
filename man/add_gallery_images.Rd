@@ -1,5 +1,6 @@
 \name{add_gallery_images}
 \alias{add_gallery_images}
+\title{Add gallery images}
 \description{Add images to the gallery}
 \usage{
 add_gallery_images(album = NULL, id = NULL, title = NULL, ...)
