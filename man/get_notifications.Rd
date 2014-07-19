@@ -3,7 +3,7 @@
 \title{Get notifications}
 \description{Get a specific notification or all notifications}
 \usage{
-get_conversations(id = NULL, only_new = FALSE, ...)
+get_notifications(id = NULL, only_new = FALSE, ...)
 }
 \arguments{
   \item{id}{A conversation ID. If \code{NULL}, all notifications (or all new notifications, depending on \code{only_new}) are returned.}

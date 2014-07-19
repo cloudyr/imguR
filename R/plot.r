@@ -1,4 +1,5 @@
 plot.imgur_image <-
+plot.imgur_gallery_image <-
 function(x, ...) {
     ext <- tolower(file_ext(x$link))
     if(ext == 'gif') {
