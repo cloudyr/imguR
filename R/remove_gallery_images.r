@@ -1,4 +1,4 @@
-remove_gallery_images <- 
+remove_gallery_image <- 
 function(id,
          ...){
     if(!"token" %in% names(list(...)))
