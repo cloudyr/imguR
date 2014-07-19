@@ -14,7 +14,7 @@ get_image(id, ...)
 %\references{}
 \author{Thomas J. Leeper}
 
-%\seealso{}
+\seealso{\code{\link{plot.imgur_image}}}
 \examples{
 \dontrun{
 get_image("vSXfU46")
