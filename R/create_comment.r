@@ -1,9 +1,8 @@
 create_comment <-
-function(id,
-         image_id,
+function(image_id,
          comment,
          ...){
-    out <- imgurPOST(paste0('comment/', id),
+    out <- imgurPOST('comment/',
                      body = list(image_id = image_id,
                                  comment = comment),
                      ...)

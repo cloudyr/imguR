@@ -1,5 +1,7 @@
 account_images_count <-
-function(...){
-    out <- imgurGET(paste0('account/me/images/count'), ...)
+function(account = 'me', ...){
+    if(!"token" %in% names(list(...)) && account == 'me')
+        stop("This operation can only be performed for account 'me' using an OAuth token.")
+    out <- imgurGET(paste0('account/', account, '/images/count'), ...)
     structure(out, class = 'imgur_basic')
 }

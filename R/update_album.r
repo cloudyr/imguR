@@ -7,6 +7,8 @@ function(album,
          layout = NULL,
          cover_id = NULL,
          ...){
+    if(inherits(album, 'imgur_album'))
+        album <- album$id
     if(!is.null(privacy))
         stopifnot(privacy %in% c('public', 'hidden', 'secret'))
     if(!is.null(layout))

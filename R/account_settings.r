@@ -5,6 +5,8 @@ function(bio = NULL,
          album_privacy = NULL,
          accepted_gallery_terms = NULL,
          ...){
+    if(!"token" %in% names(list(...)))
+        stop("This operation can only be performed using an OAuth token.")
     a <- list()
     if(!is.null(bio))
         a$bio <- bio

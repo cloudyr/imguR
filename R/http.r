@@ -1,8 +1,4 @@
-.check_error <- function(x){
-    out <- content(x)
-    if(!out$success)
-        warning('Imgur Error: ', out$data$error)
-    stop_for_status(x)
+.check_error <- function(x, method){
     
     # check rate limiting
     if(getOption('imgur_user_rate_warning', 0) > 0 || 
@@ -30,7 +26,23 @@
     
     # something here to check token expiration?
     
-    return(out$data)
+    if(method == 'DELETE'){
+        if(length(out$content) == 0){
+            stop_for_status(x)
+            return("")
+        } else {
+            out <- content(x)
+            stop_for_status(x)
+            return(out$data)
+        }
+    } else {
+        out <- content(x)
+        if(!out$success)
+            message('Imgur Error: ', out$data$error)
+        stop_for_status(x)
+        return(out$data)
+    }
+    
 }
 
 imgurGET <-
@@ -58,7 +70,7 @@ function(endpoint,
     } else {
         stop("Must specify an API key or OAuth2.0 Access Token.")
     }
-    .check_error(out)
+    .check_error(out, 'GET')
 }
 
 imgurPOST <-
@@ -86,7 +98,7 @@ function(endpoint,
     } else {
         stop("Must specify an API key or OAuth2.0 Access Token.")
     }
-    .check_error(out)
+    .check_error(out, 'POST')
 }
 
 imgurPUT <-
@@ -114,7 +126,7 @@ function(endpoint,
     } else {
         stop("Must specify an API key or OAuth2.0 Access Token.")
     }
-    .check_error(out)
+    .check_error(out, 'PUT')
 }
 
 imgurDELETE <-
@@ -142,5 +154,5 @@ function(endpoint,
     } else {
         stop("Must specify an API key or OAuth2.0 Access Token.")
     }
-    .check_error(out)
+    .check_error(out, 'DELETE')
 }
