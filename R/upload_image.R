@@ -1,5 +1,6 @@
 upload_image <-
 imgur_upload <-
+imguRupload <-
 function(file, 
          title = NULL,
          description = NULL,
@@ -16,8 +17,12 @@ function(file,
         b$title <- title
     if(!is.null(description))
         b$description <- description
-    if(!is.null(album))
-        b$album <- album
+    if(!is.null(album)) {
+        if(inherits(album, 'imgur_album'))
+            b$album <- album$id
+        else
+            b$album <- album
+    }
     if(!is.null(name))
         b$name <- name
     if(!is.null(type))
