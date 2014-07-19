@@ -10,6 +10,6 @@ Authors@R: c(person("Thomas J.", "Leeper",
                     role = c("ctb", "cre"), 
                     email = "aaron.l.statham@gmail.com"))
 Maintainer: Thomas J. Leeper <thosjleeper@gmail.com>
-Imports: RCurl, httr
+Imports: RCurl, httr, png, jpeg
 Description: A package to share plots using the image hosting service imgur.com
 License: GPL-3
