@@ -1,6 +1,5 @@
 \name{add_album_images}
 \alias{add_album_images}
-\alias{remove_album_images}
 \alias{set_album_images}
 \description{Add images to or remove images from an album}
 \usage{
