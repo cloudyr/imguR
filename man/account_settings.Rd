@@ -12,7 +12,7 @@ account_settings(bio = NULL,
 }
 \arguments{
   \item{bio}{The biography of user, which is displayed in the gallery profile page.}
-  \item{pubic_images}{A logical indicating whether images public by default.}
+  \item{public_images}{A logical indicating whether images public by default.}
   \item{messaging_enabled}{A logical indicating whether private messages are allowed.}
   \item{album_privacy}{The default privacy for albums. One of \dQuote{public}, \dQuote{hidden}, or \dQuote{secret}.}
   \item{accepted_gallery_terms}{A logical indicating whether the user agrees to the Imgur gallery terms.}
