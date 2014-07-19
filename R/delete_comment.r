@@ -1,5 +1,7 @@
 delete_comment <-
-function(id, ...){
-    out <- imgurDELETE(paste0('comment/', id), ...)
+function(comment, ...){
+    if(!"token" %in% names(list(...)))
+        stop("This operation can only be performed using an OAuth token.")
+    out <- imgurDELETE(paste0('comment/', comment), ...)
     structure(out, class = 'imgur_basic')
 }

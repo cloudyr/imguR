@@ -1,10 +1,18 @@
 create_comment <-
-function(image_id,
+function(id,
          comment,
+         parent = NULL,
          ...){
+    if(!"token" %in% names(list(...)))
+        stop("This operation can only be performed using an OAuth token.")
+    if(inherits(id, 'imgur_image'))
+        id <- id$id
+    b <- list(image_id = id,
+              comment = comment)
+    if(!is.null(parent_comment))
+        b$parent_comment <- parent
     out <- imgurPOST('comment/',
-                     body = list(image_id = image_id,
-                                 comment = comment),
+                     body = b,
                      ...)
     structure(out, class = 'imgur_basic')
 }

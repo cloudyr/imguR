@@ -1,7 +1,6 @@
 report_comment <-
-function(id,
-         replies = FALSE,
+function(comment,
          ...){
-    out <- imgurPOST(paste0('comment/', id, '/report'), ...)
+    out <- imgurPOST(paste0('comment/', comment, '/report'), ...)
     structure(out, class = 'imgur_basic')
 }
