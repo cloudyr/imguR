@@ -1,9 +1,12 @@
 \name{get_album}
 \alias{get_album}
+\alias{get_album_images}
 \title{Get album}
-\description{Get album details and metadata}
+\description{Get album details and metadata, or images.}
 \usage{
 get_album(album, ...)
+
+get_album_images(album, ...)
 }
 \arguments{
   \item{album}{An album ID or object of class \dQuote{imgur_album}.}
@@ -18,5 +21,7 @@ get_album(album, ...)
 \examples{
 \dontrun{
 get_album("cVsXX")
+
+get_album_images("cVsXX")
 }
 }
