@@ -1,6 +1,7 @@
 \name{upload_image}
 \alias{upload_image}
 \alias{imgur_upload}
+\alias{imguRupload}
 \title{Upload an image file to Imgur}
 \description{Uploads a named image file to Imgur, optionally to a specified album.}
 \usage{
@@ -18,7 +19,7 @@ imgur_upload(file, title = NULL, description = NULL, album = NULL,
   \item{type}{Should be \dQuote{file}.}
   \item{...}{Other arguments passed to HTTP request functions, for example: \code{token} (an OAuth2.0 token) or \code{key} (an API key, used by default).}
 }
-%\details{}
+\details{\code{upload_image} allows users to upload a named file to Imgur. \code{imgur_upload} is an alias that can serve as a drop-in replacement for the \code{imgur_upload} function in the knitr package.}
 \value{A list parsed from the imguR JSON response after uploading the plot (see the imgur API for details).}
 \references{\url{https://api.imgur.com/endpoints/image#image-upload}}
 \author{
