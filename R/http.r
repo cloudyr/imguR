@@ -5,21 +5,19 @@
        getOption('imgur_client_rate_warning', 0) > 0) {
         h <- x$headers
         client_remaining <- 
-            as.numeric(h$`x-ratelimit-clientlimit`) - 
             as.numeric(h$`x-ratelimit-clientremaining`)
         user_remaining <-
-            as.numeric(h$`x-ratelimit-userlimit`) -
             as.numeric(h$`x-ratelimit-userremaining`)
         reset_time <- as.POSIXct(as.numeric(h$`x-ratelimit-userreset`), 
                                  origin = '1970-01-01')
         if(user_remaining <= getOption('imgur_user_rate_warning', 0)) {
             warning("User rate limit approaching. ", 
-                    user_remaining, "calls available.\n",
+                    user_remaining, " calls available.\n",
                     "Credits will reset at:", reset_time)
         }
         if(client_remaining <= getOption('imgur_client_rate_warning', 0)) {
             warning("Client rate limit approaching. ",
-                    user_remaining, "calls available.\n",
+                    user_remaining, " calls available.\n",
                     "Please contact Thomas Leeper <thosjleeper@gmail.com> about this message.")
         }
     }
