@@ -27,7 +27,7 @@
     # something here to check token expiration?
     
     if(method == 'DELETE'){
-        if(length(out$content) == 0){
+        if(length(x$content) == 0){
             stop_for_status(x)
             return("")
         } else {
