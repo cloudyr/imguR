@@ -25,6 +25,7 @@
     }
     
     # something here to check token expiration?
+    # that would only work with uncached token
     
     if(method == 'DELETE'){
         if(length(x$content) == 0){

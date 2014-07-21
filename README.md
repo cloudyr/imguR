@@ -74,25 +74,24 @@ account_album_count(token = tkn)
 
 The OAuth2.0 token is moderately long lived. You can see when it expires by looking at, e.g., `tkn$credentials$expiration`. If a token expires, it can be refreshed using the `refresh()` method, e.g., `tkn$refresh()`.
 
-The ability to refresh the OAuth2.0 token also means that it is possible to use the token non-interactively. First, generate a token and save it locally:
+The ability to refresh the OAuth2.0 token also means that it is possible to use the token non-interactively. First, generate a token and save it locally (with the default `cache = TRUE` argument to `imgur_login`):
 
 ```
 # generate a token interactively
 tkn <- imgur_login()
-save(tkn, 'imgur_token.Rdata')
 ```
 
-Then, reload and optionally refresh the token in the non-interactive session before performing any operations:
+Then, reload (using httr's built-in OAuth caching mechanism) and optionally refresh the token in the non-interactive session before performing any operations:
 
 ```
-load('imgur_token.Rdata')
-tkn$refresh()
+tkn <- imgur_login()
+# tkn$refresh() # refresh token, if expired
 i <- imgur(token = tkn)
 hist(rnorm(100))
 imgur_off(i)
 ```
 
-Note: `imgur_login` uses OAuth credentials registered to the package maintainer. If you intend to make a very large number of API requests, it may be appropriate [to register your own application](https://api.imgur.com/oauth2/addclient). You can check user- and package-level rate limits with `rate_limit`.
+Note: `imgur_login` uses OAuth credentials registered to the package maintainer. If you intend to make a very large number of API requests, it may be appropriate [to register your own application](https://api.imgur.com/oauth2/addclient). You can check user- and package-level rate limits with `rate_limit`.  
 
 
 ### Managing Images ###
