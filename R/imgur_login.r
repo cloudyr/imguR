@@ -9,17 +9,14 @@ function(client_id = "1babd0decbb90f2",
                         access = 'https://api.imgur.com/oauth2/token', 
                         addclient = 'https://api.imgur.com/oauth2/addclient'),
                         class = 'oauth_endpoint')
-    if(file.exists(httr:::use_cache(TRUE)))
-        already_cached <- TRUE
-    else
-        already_cached <- FALSE
     app <- oauth_app('imgur', client_id, secret)
     token <- oauth2.0_token(e, app, use_oob = FALSE, cache = cache)
     if('error' %in% names(token$credentials)){
         warning('OAuth error ', token$credentials$error,
                 ': ', token$credentials$error_description, sep='')
     }
-    if(!already_cached)
-        token$credentials$expiration <- Sys.time() + token$credentials$expires_in
+    token$credentials$expiration <- Sys.time() + token$credentials$expires_in
+    if(cache)
+        token$cache()
     return(token)
 }

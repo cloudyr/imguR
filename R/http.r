@@ -1,4 +1,4 @@
-.check_error <- function(x, method){
+.check_error <- function(x, method, token){
     
     # check rate limiting
     if(getOption('imgur_user_rate_warning', 0) > 0 || 
@@ -24,8 +24,9 @@
         }
     }
     
-    # something here to check token expiration?
-    # that would only work with uncached token
+    # check token
+    if(token$credentials$expiration < Sys.time())
+        warning("Token appears to be expired. Consider refreshing it.")
     
     if(method == 'DELETE'){
         if(length(x$content) == 0){
@@ -71,7 +72,7 @@ function(endpoint,
     } else {
         stop("Must specify an API key or OAuth2.0 Access Token.")
     }
-    .check_error(out, 'GET')
+    .check_error(out, 'GET', token)
 }
 
 imgurPOST <-
@@ -99,7 +100,7 @@ function(endpoint,
     } else {
         stop("Must specify an API key or OAuth2.0 Access Token.")
     }
-    .check_error(out, 'POST')
+    .check_error(out, 'POST', token)
 }
 
 imgurPUT <-
@@ -127,7 +128,7 @@ function(endpoint,
     } else {
         stop("Must specify an API key or OAuth2.0 Access Token.")
     }
-    .check_error(out, 'PUT')
+    .check_error(out, 'PUT', token)
 }
 
 imgurDELETE <-
@@ -155,5 +156,5 @@ function(endpoint,
     } else {
         stop("Must specify an API key or OAuth2.0 Access Token.")
     }
-    .check_error(out, 'DELETE')
+    .check_error(out, 'DELETE', token)
 }
