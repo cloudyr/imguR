@@ -1,6 +1,6 @@
 get_memes_gallery <- 
-function(sort,
-         page,
+function(sort = 'viral',
+         page = 0,
          window = NULL,
          ...){
     if(!is.null(window))
@@ -12,5 +12,6 @@ function(sort,
                                                     '/'),
                            page),
                     ...)
-    structure(out, class = 'imgur_gallery_album') # check this
+    out <- lapply(out, `class<-`, 'imgur_gallery_image')
+    structure(out, class = 'imgur_gallery_album')
 }

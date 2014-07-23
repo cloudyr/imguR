@@ -1,6 +1,5 @@
 account_albums <-
 function(account = 'me',
-         page = NULL, 
          ids = TRUE,
          ...){
     if(!"token" %in% names(list(...)) && account == 'me')
@@ -9,8 +8,8 @@ function(account = 'me',
         out <- imgurGET(paste0('account/', account, '/albums/ids'), ...)
         structure(out, class = 'imgur_basic')
     } else {
-        out <- imgurGET(paste0('account/', account, '/albums/', page), ...)
-        structure(out, class = 'imgur_album') # check this
+        out <- imgurGET(paste0('account/', account, '/albums/'), ...)
+        lapply(out, `class<-`, 'imgur_album')
     }
     
 }

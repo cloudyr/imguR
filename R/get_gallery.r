@@ -1,7 +1,7 @@
 get_gallery <- 
 function(section = 'hot',
          sort = 'viral',
-         page = 1,
+         page = 0,
          window = 'day',
          showViral = TRUE,
          ...){

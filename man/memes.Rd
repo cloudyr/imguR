@@ -7,12 +7,12 @@
 \usage{
 default_memes(...)
 
-get_memes_gallery(sort, page, window = NULL, ...)
+get_memes_gallery(sort = 'viral', page = 0, window = NULL, ...)
 
 get_meme(id, ...)
 }
 \arguments{
-  \item{sort}{One of \dQuote{viral}, \dQuote{time}, or \dQuote{top}.}
+  \item{sort}{One of \dQuote{viral} (the default), \dQuote{time}, or \dQuote{top}.}
   \item{page}{A page number of results between 0 and 50.}
   \item{window}{One of \dQuote{day}, \dQuote{week}, \dQuote{month}, \dQuote{year}, or \dQuote{all}.}
   \item{id}{An image ID, perhaps returned by \code{get_memes_gallery}.}
@@ -21,7 +21,7 @@ get_meme(id, ...)
 \details{
 \code{default_memes} returns a list of default memes available on Imgur. \code{get_memes_gallery} returns a list of trending memes. \code{get_meme} returns a specific meme image.
 }
-\value{An object of class \dQuote{imgur_image} or \dQuote{imgur_gallery_iage}.}
+\value{A list of objects of class \dQuote{imgur_image} or \dQuote{imgur_gallery_image}.}
 %\references{}
 \author{Thomas J. Leeper}
 %\seealso{}

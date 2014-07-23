@@ -1,13 +1,14 @@
 get_reddit_gallery <- 
 function(subreddit,
          sort = 'time',
-         page = 1,
+         page = 0,
          window = 'day',
          ...){
     if(!is.null(window))
        stopifnot(window %in% c('day', 'week', 'month', 'year', 'all'))
     stopifnot(sort %in% c('time', 'top'))
     stopifnot(is.numeric(as.numeric(page)))
+    stopifnot(is.numeric(as.numeric(perPage)))
     out <- imgurGET(paste0('gallery/r/', 
                            paste0(subreddit, '/'),
                            sort, '/',
