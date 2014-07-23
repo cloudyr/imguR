@@ -8,7 +8,6 @@ function(subreddit,
        stopifnot(window %in% c('day', 'week', 'month', 'year', 'all'))
     stopifnot(sort %in% c('time', 'top'))
     stopifnot(is.numeric(as.numeric(page)))
-    stopifnot(is.numeric(as.numeric(perPage)))
     out <- imgurGET(paste0('gallery/r/', 
                            paste0(subreddit, '/'),
                            sort, '/',
