@@ -5,7 +5,7 @@ function(id,
          ...){
     if(inherits(id, 'imgur_image'))
         id <- id$id
-    out <- imgurPOST(paste0('image/', id, '/favorite'), 
+    out <- imgurPOST(paste0('image/', id, '/'), 
                      body = list(title = title, 
                                  description = description),
                      ...)

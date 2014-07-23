@@ -25,8 +25,11 @@ function(id = NULL,
         b$cover_id <- cover_id
     }
     if(!is.null(id)){
-        if(is.list(id))
+        if(inherits(id, 'imgur_image')) {
+            id <- id$id
+        } else if(is.list(id)) {
             id <- sapply(id, `$`, 'id')
+        }
         b$ids <- paste(id, collapse = ',')
     }
     out <- imgurPOST('album/', body = b, ...)

@@ -2,7 +2,7 @@
 \alias{account}
 \alias{account_verified}
 \alias{send_verification}
-\title{Retrieve user acccount details}
+\title{Retrieve user account details}
 \description{Retrieve details of a user's account}
 \usage{
 account(account = 'me', ...)

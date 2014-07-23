@@ -1,7 +1,8 @@
 get_gallery_album <- 
-function(id, ...){
-    if(inherits(id, 'imgur_album') || inherits(id, 'imgur_gallery_album'))
-        id <- id$id
-    out <- imgurGET(paste0('gallery/album/', id), ...)
+function(album, ...){
+    if(inherits(album, 'imgur_album') || inherits(album, 'imgur_gallery_album'))
+        album <- album$id
+    out <- imgurGET(paste0('gallery/album/', album), ...)
+    out[['images']] <- lapply(out[['images']], `class<-`, 'imgur_gallery_image')
     structure(out, class = 'imgur_gallery_album')
 }

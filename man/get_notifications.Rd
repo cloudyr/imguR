@@ -10,7 +10,7 @@ get_notifications(id = NULL, only_new = FALSE, ...)
   \item{only_new}{A logical indicating whether only new notifications should be returned. Default is \code{FALSE}.}
   \item{...}{Other arguments passed to HTTP request functions, for example: \code{token} (an OAuth2.0 token), which is required.}
 }
-\details{Retrieves a named notifications, possibly returned by \code{\link{get_notifications}}, or all (new) notifications.}
+\details{Retrieves a named notification, possibly returned by \code{\link{get_notifications}}, or all (new) notifications.}
 \value{An object of class \dQuote{imgur_notification}.}
 %\references{}
 \author{Thomas J. Leeper}

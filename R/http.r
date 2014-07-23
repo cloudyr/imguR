@@ -24,10 +24,6 @@
         }
     }
     
-    # check token
-    if(token$credentials$expiration < Sys.time())
-        warning("Token appears to be expired. Consider refreshing it.")
-    
     if(method == 'DELETE'){
         if(length(x$content) == 0){
             stop_for_status(x)
@@ -50,18 +46,16 @@
 imgurGET <-
 function(endpoint, 
          base_url = "https://api.imgur.com/3/", 
-         key = "1babd0decbb90f2", # Thomas Leeper imguR
-         #key = "9f3460e67f308f6", # Yihui Xie knitr
-         #key = "4feb29d00face5bc1b9dae536e15c373", # Aaron Statham imguR
+         key = "1babd0decbb90f2",
          token = NULL,
          ...){
     if(!is.null(token)){
         if(inherits(token, "Token2.0"))
-            token <- token$credentials$access_token
-        if(!is.character(token))
+            oauthtoken <- token$credentials$access_token
+        if(!is.character(oauthtoken))
             stop('The Imgur API OAuth token must be a character string!')
         out <- GET(paste0(base_url, endpoint), 
-                   config(httpheader = c(Authorization = paste('Bearer', token))),
+                   config(httpheader = c(Authorization = paste('Bearer', oauthtoken))),
                    ...)
     } else if(!is.null(key)) {
         if(!is.character(key))
@@ -78,18 +72,16 @@ function(endpoint,
 imgurPOST <-
 function(endpoint, 
          base_url = "https://api.imgur.com/3/", 
-         key = "1babd0decbb90f2", # Thomas Leeper imguR
-         #key = "9f3460e67f308f6", # Yihui Xie knitr
-         #key = "4feb29d00face5bc1b9dae536e15c373", # Aaron Statham imguR
+         key = "1babd0decbb90f2",
          token = NULL,
          ...){
     if(!is.null(token)){
         if(inherits(token, "Token2.0"))
-            token <- token$credentials$access_token
-        if(!is.character(token))
+            oauthtoken <- token$credentials$access_token
+        if(!is.character(oauthtoken))
             stop('The Imgur API OAuth token must be a character string!')
         out <- POST(paste0(base_url, endpoint), 
-                    config(httpheader = c(Authorization = paste('Bearer', token))),
+                    config(httpheader = c(Authorization = paste('Bearer', oauthtoken))),
                     ...)
     } else if(!is.null(key)) {
         if(!is.character(key))
@@ -106,18 +98,16 @@ function(endpoint,
 imgurPUT <-
 function(endpoint, 
          base_url = "https://api.imgur.com/3/", 
-         key = "1babd0decbb90f2", # Thomas Leeper imguR
-         #key = "9f3460e67f308f6", # Yihui Xie knitr
-         #key = "4feb29d00face5bc1b9dae536e15c373", # Aaron Statham imguR
+         key = "1babd0decbb90f2",
          token = NULL,
          ...){
     if(!is.null(token)){
         if(inherits(token, "Token2.0"))
-            token <- token$credentials$access_token
-        if(!is.character(token))
+            oauthtoken <- token$credentials$access_token
+        if(!is.character(oauthtoken))
             stop('The Imgur API OAuth token must be a character string!')
         out <- PUT(paste0(base_url, endpoint), 
-                   config(httpheader = c(Authorization = paste('Bearer', token))),
+                   config(httpheader = c(Authorization = paste('Bearer', oauthtoken))),
                    ...)
     } else if(!is.null(key)) {
         if(!is.character(key))
@@ -134,18 +124,16 @@ function(endpoint,
 imgurDELETE <-
 function(endpoint, 
          base_url = "https://api.imgur.com/3/", 
-         key = "1babd0decbb90f2", # Thomas Leeper imguR
-         #key = "9f3460e67f308f6", # Yihui Xie knitr
-         #key = "4feb29d00face5bc1b9dae536e15c373", # Aaron Statham imguR
+         key = "1babd0decbb90f2",
          token = NULL,
          ...){
     if(!is.null(token)){
         if(inherits(token, "Token2.0"))
-            token <- token$credentials$access_token
-        if(!is.character(token))
+            oauthtoken <- token$credentials$access_token
+        if(!is.character(oauthtoken))
             stop('The Imgur API OAuth token must be a character string!')
         out <- DELETE(paste0(base_url, endpoint), 
-                      config(httpheader = c(Authorization = paste('Bearer', token))),
+                      config(httpheader = c(Authorization = paste('Bearer', oauthtoken))),
                       ...)
     } else if(!is.null(key)) {
         if(!is.character(key))

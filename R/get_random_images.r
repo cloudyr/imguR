@@ -1,9 +1,10 @@
 get_random_images <- 
-function(page = NULL,
+function(page = 1,
          ...){
-    stopifnot(!is.numeric(as.numeric(page)))
+    stopifnot(is.numeric(as.numeric(page)))
     out <- imgurGET(paste0('gallery/random/random/',
                            ifelse(!is.null(page), page, NULL)),
                     ...)
-    structure(out, class = 'imgur_gallery_album') # check this
+    out <- lapply(out, `class<-`, 'imgur_gallery_image')
+    structure(out, class = 'imgur_gallery_album')
 }

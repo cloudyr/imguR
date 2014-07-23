@@ -62,13 +62,13 @@ Generating an OAuth2.0 token is easy in an interactive session using `imgur_logi
 tkn <- imgur_login()
 
 # upload a simple plot
-i <- imgur(token = token)
+i <- imgur(token = tkn)
 hist(rnorm(100))
 imgur_off(i)
 
 # check account details
-account_base(token = tkn)
-account_images_count(token = tkn)
+account(token = tkn)
+account_image_count(token = tkn)
 account_album_count(token = tkn)
 ```
 
