@@ -8,13 +8,13 @@ By default, all images are loaded to Imgur anonymously. Optionally, using an OAu
 
 [![Build Status](https://travis-ci.org/leeper/imguR.png?branch=master)](https://travis-ci.org/leeper/imguR)
 
-Version 0.1.5 of **imguR** (using v2 of the API, by Aaron Statham) can be installed from [CRAN](http://cran.r-project.org/web/packages/imguR/index.html) using:
+The current stable version **imguR** can be installed from [CRAN](http://cran.r-project.org/web/packages/imguR/index.html) using:
 
 ```
 install.packages('imguR')
 ```
 
-The development version (v1.0) can be installed directly from GitHub using `devtools`:
+The development version can be installed directly from GitHub using `devtools`:
 
 ```
 if(!require('devtools')) {
