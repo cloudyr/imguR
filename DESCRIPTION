@@ -1,8 +1,8 @@
 Package: imguR
 Type: Package
 Title: Imgur API Client Package for R
-Version: 1.0.0
-Date: 2014-07-23
+Version: 1.0.1
+Date: 2016-02-19
 Authors@R: c(person("Thomas J.", "Leeper", role = c("aut", "cre"),
                     email = "thosjleeper@gmail.com"),
              person("Aaron", "Statham", role = c("ctb"), 
@@ -10,6 +10,8 @@ Authors@R: c(person("Thomas J.", "Leeper", role = c("aut", "cre"),
              person("Yihui", "Xie", role = c("ctb"))
             )
 Maintainer: Thomas J. Leeper <thosjleeper@gmail.com>
-Imports: RCurl, httr, png, jpeg, tools
-Description: A package to share plots using the image hosting service Imgur.com
+Imports: httr, png, jpeg, tools
+Description: A complete API client for the image hosting service Imgur.com, including the an imgur graphics device, enabling the easy upload and sharing of plots.
 License: GPL-3
+URL: https://github.com/leeper/imguR
+BugReports: https://github.com/leeper/imguR/issues

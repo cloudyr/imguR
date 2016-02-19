@@ -12,7 +12,7 @@ function(file,
         stop("File not found!")
     if(file.info(file)$size > 1e7)
         warning("File is larger than 10MB and may not upload.")
-    b <- list(image = fileUpload(file))
+    b <- list(image = upload_file(file))
     if(!is.null(title))
         b$title <- title
     if(!is.null(description))

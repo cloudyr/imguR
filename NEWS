@@ -1,3 +1,7 @@
+# CHANGES TO imguR 1.0.1 #
+
+* Fix R CMD check NAMESPACE notes.
+
 # CHANGES TO imguR 1.0.0 #
 
 ## SIGNIFICANT USER-VISIBLE CHANGES ##

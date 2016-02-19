@@ -4,30 +4,6 @@
 
 By default, all images are loaded to Imgur anonymously. Optionally, using an OAuth2.0 login (see examples below), users can also gain full access to their own Imgur user account.
 
-## Requirements and Installation ##
-
-[![Build Status](https://travis-ci.org/leeper/imguR.png?branch=master)](https://travis-ci.org/leeper/imguR)
-
-The current stable version **imguR** can be installed from [CRAN](http://cran.r-project.org/web/packages/imguR/index.html) using:
-
-```
-install.packages('imguR')
-```
-
-The development version can be installed directly from GitHub using `devtools`:
-
-```
-if(!require('devtools')) {
-    install.packages('devtools')
-    library('devtools')
-}
-install_github('leeper/imguR')
-```
-
-## Example Usage ##
-
-Below are some simple code examples demonstrating package functionality.
-
 
 ### The Imgur Graphics Device ###
 
@@ -122,3 +98,25 @@ update_image(u$deletehash, title = 'My graph', description = 'A simple graph')
 ```
 
 This procedure can also be used for other API operations, such as modifying albums. Not all operations can be performed anonymously, however.
+
+## Requirements and Installation ##
+
+[![CRAN Version](http://www.r-pkg.org/badges/version/imguR)](http://cran.r-project.org/package=imguR)
+![Downloads](http://cranlogs.r-pkg.org/badges/imguR)
+[![Travis-CI Build Status](https://travis-ci.org/leeper/imguR.png?branch=master)](https://travis-ci.org/leeper/imguR)
+[![codecov.io](http://codecov.io/github/leeper/imguR/coverage.svg?branch=master)](http://codecov.io/github/leeper/imguR?branch=master)
+
+The current stable version **imguR** can be installed from [CRAN](http://cran.r-project.org/web/packages/imguR/index.html) using:
+
+```
+install.packages('imguR')
+```
+
+The development version can be installed directly from GitHub using `ghit`:
+
+```
+if(!require('ghit')) {
+    install.packages('ghit')
+}
+ghit::install_github('leeper/imguR')
+```
