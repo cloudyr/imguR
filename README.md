@@ -106,7 +106,7 @@ This procedure can also be used for other API operations, such as modifying albu
 [![Travis-CI Build Status](https://travis-ci.org/leeper/imguR.png?branch=master)](https://travis-ci.org/leeper/imguR)
 [![codecov.io](http://codecov.io/github/leeper/imguR/coverage.svg?branch=master)](http://codecov.io/github/leeper/imguR?branch=master)
 
-The current stable version **imguR** can be installed from [CRAN](http://cran.r-project.org/web/packages/imguR/index.html) using:
+The current stable version **imguR** can be installed from [CRAN](http://cran.r-project.org/package=imguR) using:
 
 ```
 install.packages('imguR')
