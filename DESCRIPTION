@@ -1,8 +1,8 @@
 Package: imguR
 Type: Package
 Title: Imgur API Client Package for R
-Version: 1.0.1
-Date: 2016-02-19
+Version: 1.0.2
+Date: 2016-03-29
 Authors@R: c(person("Thomas J.", "Leeper", role = c("aut", "cre"),
                     email = "thosjleeper@gmail.com"),
              person("Aaron", "Statham", role = c("ctb"), 
