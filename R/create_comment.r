@@ -3,14 +3,17 @@ function(id,
          comment,
          parent = NULL,
          ...){
-    if(!"token" %in% names(list(...)))
+    if (!"token" %in% names(list(...))) {
         stop("This operation can only be performed using an OAuth token.")
-    if(inherits(id, 'imgur_image'))
+    }
+    if (inherits(id, 'imgur_image')) {
         id <- id$id
+    }
     b <- list(image_id = id,
               comment = comment)
-    if(!is.null(parent))
+    if (!is.null(parent)) {
         b$parent_comment <- parent
+    }
     out <- imgurPOST('comment/',
                      body = b,
                      ...)

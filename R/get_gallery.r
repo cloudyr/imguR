@@ -6,8 +6,9 @@ function(section = 'hot',
          showViral = TRUE,
          ...){
     stopifnot(section %in% c('hot', 'top', 'user'))
-    if(!is.null(window))
+    if (!is.null(window)) {
        stopifnot(window %in% c('day', 'week', 'month', 'year', 'all'))
+    }
     stopifnot(sort %in% c('viral', 'time'))
     stopifnot(is.numeric(as.numeric(page)))
     stopifnot(is.logical(showViral))

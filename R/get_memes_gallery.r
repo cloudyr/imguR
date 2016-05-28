@@ -3,8 +3,9 @@ function(sort = 'viral',
          page = 0,
          window = NULL,
          ...){
-    if(!is.null(window))
+    if (!is.null(window)) {
        stopifnot(window %in% c('day', 'week', 'month', 'year', 'all'))
+    }
     stopifnot(sort %in% c('viral', 'time', 'top'))
     stopifnot(is.numeric(as.numeric(page)))
     out <- imgurGET(paste0('gallery/g/memes/', sort,

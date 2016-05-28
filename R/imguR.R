@@ -9,7 +9,7 @@ function(device = png,
          key = NULL,
          token = NULL,
          ...) {
-    if(!is.null(file)) {
+    if (!is.null(file)) {
         tmpfile <- file
         delete <- FALSE
     } else {
@@ -23,21 +23,26 @@ function(device = png,
                 description = description, 
                 name = name,
                 delete = delete)
-    if(!is.null(key))
+    if (!is.null(key)) {
         out$key <- key
-    if(!is.null(token))
+    }
+    if (!is.null(token)) {
         out$token <- token
+    }
     structure(out, class = 'imgur_device')
 }
 
 imgur_off <-
 function(obj, ...) {
-    if(!inherits(obj, 'imgur_device'))
+    if (!inherits(obj, 'imgur_device')) {
         stop("'obj' is not of class 'imgur_device'")
-    if(obj$current %in% dev.list())
+    }
+    if (obj$current %in% dev.list()) {
         dev.off(obj$current)
+    }
     tmp <- do.call(upload_image, c(obj, list(...)))
-    if(obj$delete)
+    if (obj$delete) {
         unlink(obj$file)
+    }
     return(tmp)
 }

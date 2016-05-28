@@ -11,12 +11,13 @@ function(client_id = "1babd0decbb90f2",
                         class = 'oauth_endpoint')
     app <- oauth_app('imgur', client_id, secret)
     token <- oauth2.0_token(e, app, use_oob = FALSE, cache = cache)
-    if('error' %in% names(token$credentials)){
+    if ('error' %in% names(token$credentials)) {
         warning('OAuth error ', token$credentials$error,
                 ': ', token$credentials$error_description, sep='')
     }
     token$credentials$expiration <- Sys.time() + token$credentials$expires_in
-    if(cache)
+    if (cache) {
         token$cache()
+    }
     return(token)
 }
