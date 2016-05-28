@@ -1,2 +1,4 @@
 .travis.yml
 travis-tool.sh
+CONTRIBUTING.md
+drat.sh
