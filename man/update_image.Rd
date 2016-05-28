@@ -12,7 +12,7 @@ update_image(id, title = NULL, description = NULL, ...)
   \item{...}{Other arguments passed to HTTP request functions, for example: \code{token} (an OAuth2.0 token) or \code{key} (an API key, used by default).}
 }
 \details{Update the title or description of an already-uploaded image.}
-\value{An object of class \dQuote{imgur_basic}.}
+\value{A logical, with the class \dQuote{imgur_basic}.}
 %\references{}
 \author{Thomas J. Leeper}
 

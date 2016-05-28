@@ -1,4 +1,4 @@
-# imguR Package #
+# imguR #
 
 **imguR** enables intuitive uploading of plots created in R to the free image hosting service [Imgur](http://www.imgur.com) simply, quickly, and intuitively via the [Imgur v3 API](http://api.imgur.com). The package is a complete client library for the Imgur API, meaning that one can also delete, favorite, and comment on images, as well as organize them in albums and galleries, among other operations.
 
@@ -9,7 +9,7 @@ By default, all images are loaded to Imgur anonymously. Optionally, using an OAu
 
 The two workhorse functions for anonymously uploading images to Imgur are `imgur` and `imgur_off`, the latter of which wraps `dev.off` and completes the image upload.
 
-```
+```R
 library('imguR')
 i <- imgur('pdf') # first argument to `imgur` is any graphics device function
 plot(x=1:10, y=-1:-10, col=1:10, pch=19, main="oh hai dere")
@@ -19,7 +19,7 @@ imgur_off(i)
 
 To upload images to a user account, first complete an OAuth login (see next section) and then pass the OAuth2.0 token object to `imgur`, e.g.:
 
-```
+```R
 tkn <- imgur_login()
 i <- imgur(token = tkn)
 hist(rnorm(100))
@@ -33,7 +33,7 @@ By default, all operations in **imguR** are performed anonymously using an API k
 
 Generating an OAuth2.0 token is easy in an interactive session using `imgur_login()` (and completing a user account login in your web browser on a screen [that looks like this](http://i.imgur.com/DgqMUeq.png)), the response of which is a Reference Class object that can be passed to all package functions. For example:
 
-```
+```R
 # login
 tkn <- imgur_login()
 
@@ -52,14 +52,14 @@ The OAuth2.0 token is moderately long lived. You can see when it expires by look
 
 The ability to refresh the OAuth2.0 token also means that it is possible to use the token non-interactively. First, generate a token and save it locally (with the default `cache = TRUE` argument to `imgur_login`):
 
-```
+```R
 # generate a token interactively
 tkn <- imgur_login()
 ```
 
 Then, reload (using httr's built-in OAuth caching mechanism) and optionally refresh the token in the non-interactive session before performing any operations:
 
-```
+```R
 tkn <- imgur_login()
 # tkn$refresh() # refresh token, if expired
 i <- imgur(token = tkn)
@@ -74,7 +74,7 @@ Note: `imgur_login` uses OAuth credentials registered to the package maintainer.
 
 If operations (e.g., `upload_image`) are performed with a `token` argument, they can subsequently be modified (e.g., `update_image`) by passing the relevant identifiers:
 
-```
+```R
 i <- imgur(token = tkn)
 hist(rnorm(100))
 u <- imgur_off(i)
@@ -88,7 +88,7 @@ update_image(u$id, title = 'My graph', description = 'A simple graph', token = t
 
 If you tried to perform the `update_image` operation without passing a `token` argument, the operation would fail. Similarly, if an image is uploaded anonymously, it is not possibly to anonymously modify it. Instead, the `imgur_image` response object (a simple list) will include a `deletehash` element, which is essentially a private key for the image. This can be used to modify the image:
 
-```
+```R
 i <- imgur()
 hist(rnorm(100))
 u <- imgur_off(i)
@@ -101,10 +101,10 @@ This procedure can also be used for other API operations, such as modifying albu
 
 ## Requirements and Installation ##
 
-[![CRAN Version](http://www.r-pkg.org/badges/version/imguR)](http://cran.r-project.org/package=imguR)
+[![CRAN Version](http://www.r-pkg.org/badges/version/imguR)](https://cran.r-project.org/package=imguR)
 ![Downloads](http://cranlogs.r-pkg.org/badges/imguR)
-[![Travis-CI Build Status](https://travis-ci.org/leeper/imguR.png?branch=master)](https://travis-ci.org/leeper/imguR)
-[![codecov.io](http://codecov.io/github/leeper/imguR/coverage.svg?branch=master)](http://codecov.io/github/leeper/imguR?branch=master)
+[![Travis-CI Build Status](https://travis-ci.org/cloudyr/imguR.png?branch=master)](https://travis-ci.org/cloudyr/imguR)
+[![codecov.io](http://codecov.io/github/cloudyr/imguR/coverage.svg?branch=master)](http://codecov.io/github/cloudyr/imguR?branch=master)
 
 The current stable version **imguR** can be installed from [CRAN](http://cran.r-project.org/package=imguR) using:
 
@@ -118,5 +118,7 @@ The development version can be installed directly from GitHub using `ghit`:
 if(!require('ghit')) {
     install.packages('ghit')
 }
-ghit::install_github('leeper/imguR')
+ghit::install_github('cloudyr/imguR')
 ```
+
+[![cloudyr project logo](http://i.imgur.com/JHS98Y7.png)](https://github.com/cloudyr)

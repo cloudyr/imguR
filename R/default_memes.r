@@ -1,5 +1,5 @@
 default_memes <- 
 function(...){
     out <- imgurGET('memegen/defaults', ...)
-    lapply(out, `class<-`, 'imgur_image')
+    structure(lapply(out, `class<-`, 'imgur_image'), class = 'imgur_gallery_album')
 }

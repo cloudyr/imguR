@@ -1,3 +1,8 @@
+# CHANGES TO imguR 1.0.3 #
+
+* Added a test suite and travis-CI testing. (#7)
+* Migrated imguR to the cloudyr project.
+
 # CHANGES TO imguR 1.0.2 #
 
 * Fixed an error related to passing headers through httr functions. (#6)
