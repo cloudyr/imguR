@@ -1,11 +1,11 @@
-# imguR #
+# imguR API Client
 
 **imguR** enables intuitive uploading of plots created in R to the free image hosting service [Imgur](http://www.imgur.com) simply, quickly, and intuitively via the [Imgur v3 API](http://api.imgur.com). The package is a complete client library for the Imgur API, meaning that one can also delete, favorite, and comment on images, as well as organize them in albums and galleries, among other operations.
 
 By default, all images are loaded to Imgur anonymously. Optionally, using an OAuth2.0 login (see examples below), users can also gain full access to their own Imgur user account.
 
 
-### The Imgur Graphics Device ###
+### The Imgur Graphics Device
 
 The two workhorse functions for anonymously uploading images to Imgur are `imgur` and `imgur_off`, the latter of which wraps `dev.off` and completes the image upload.
 
@@ -27,7 +27,7 @@ imgur_off(i)
 ```
 
 
-### OAuth2.0 Support ###
+### OAuth2.0 Support
 
 By default, all operations in **imguR** are performed anonymously using an API key attached to the **imguR** package and registered by the package maintainer. To use the package in a non-anonymous fashion (and to obtain higher API rate limits), operations needs to include an `token` argument, which must contain an OAuth2.0 token object. Note: Some operations cannot be performed anonymously and must be performed with the `token` argument; these operations produce an error if no `token` is supplied.
 
@@ -70,7 +70,7 @@ imgur_off(i)
 Note: `imgur_login` uses OAuth credentials registered to the package maintainer. If you intend to make a very large number of API requests, it may be appropriate [to register your own application](https://api.imgur.com/oauth2/addclient). You can check user- and package-level rate limits with `rate_limit`.  
 
 
-### Managing Images ###
+### Managing Images
 
 If operations (e.g., `upload_image`) are performed with a `token` argument, they can subsequently be modified (e.g., `update_image`) by passing the relevant identifiers:
 
@@ -99,12 +99,12 @@ update_image(u$deletehash, title = 'My graph', description = 'A simple graph')
 
 This procedure can also be used for other API operations, such as modifying albums. Not all operations can be performed anonymously, however.
 
-## Requirements and Installation ##
+## Requirements and Installation
 
-[![CRAN Version](http://www.r-pkg.org/badges/version/imguR)](https://cran.r-project.org/package=imguR)
-![Downloads](http://cranlogs.r-pkg.org/badges/imguR)
+[![CRAN Version](https://www.r-pkg.org/badges/version/imguR)](https://cran.r-project.org/package=imguR)
+![Downloads](https://cranlogs.r-pkg.org/badges/imguR)
 [![Travis-CI Build Status](https://travis-ci.org/cloudyr/imguR.png?branch=master)](https://travis-ci.org/cloudyr/imguR)
-[![codecov.io](http://codecov.io/github/cloudyr/imguR/coverage.svg?branch=master)](http://codecov.io/github/cloudyr/imguR?branch=master)
+[![codecov.io](https://codecov.io/github/cloudyr/imguR/coverage.svg?branch=master)](https://codecov.io/github/cloudyr/imguR?branch=master)
 
 The current stable version **imguR** can be installed from [CRAN](http://cran.r-project.org/package=imguR) using:
 
@@ -112,13 +112,13 @@ The current stable version **imguR** can be installed from [CRAN](http://cran.r-
 install.packages('imguR')
 ```
 
-The development version can be installed directly from GitHub using `ghit`:
+The development version can be installed directly from GitHub using `remotes`:
 
 ```
-if(!require('ghit')) {
-    install.packages('ghit')
+if (!require('remotes')) {
+    install.packages('remotes')
 }
-ghit::install_github('cloudyr/imguR')
+remotes::install_github('cloudyr/imguR')
 ```
 
 [![cloudyr project logo](http://i.imgur.com/JHS98Y7.png)](https://github.com/cloudyr)

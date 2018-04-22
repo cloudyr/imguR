@@ -1,23 +1,21 @@
-# CHANGES TO imguR 1.0.3 #
+# imguR 1.0.3
 
 * Added a test suite and travis-CI testing. (#7)
 * Migrated imguR to the cloudyr project.
 
-# CHANGES TO imguR 1.0.2 #
+# imguR 1.0.2
 
 * Fixed an error related to passing headers through httr functions. (#6)
 
-# CHANGES TO imguR 1.0.1 #
+# imguR 1.0.1
 
 * Fix R CMD check NAMESPACE notes.
 
-# CHANGES TO imguR 1.0.0 #
-
-## SIGNIFICANT USER-VISIBLE CHANGES ##
+# imguR 1.0.0
 
 * Thomas Leeper takes over as maintainer.
 * Package now works with the Imgur v3 API (including OAuth 2.0 support as well as anonymously).
  
-# CHANGES TO imgur 0.1 #
+# imgur 0.1
 
 * Initial package released by Aaron Statham
